@@ -1,7 +1,23 @@
 <html>
-    <body>
-        <script type="text/javascript">
-            alert("it works");
-        </script>
-    </body>
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+
+        axios.get('/cars')
+          .then(function (response) {
+            // handle success
+            console.log(response);
+            response.data.forEach((car) => console.log(car))
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+          .then(function () {
+            // always executed
+          });
+    </script>
+</body>
 </html>
