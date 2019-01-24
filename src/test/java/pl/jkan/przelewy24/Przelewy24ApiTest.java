@@ -42,7 +42,15 @@ public class Przelewy24ApiTest {
                 httpClient
         );
 
-        api.registerPayment(new RegisterPaymentData("sesion_id", 12300, "kanclerj@uek.krakow.pl", "", "", ""));
+        api.registerPayment(
+                new RegisterPaymentData(
+                        "sesion_id",
+                        12300,
+                        "kanclerj@uek.krakow.pl",
+                        "",
+                        "",
+                        ""));
+
         Request r = httpClient.lastRequest;
 
         Assert.assertEquals(RequestRegistry.expectedRegisterPaymentParams(), r.getParams());

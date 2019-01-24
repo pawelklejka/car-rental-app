@@ -12,7 +12,7 @@ public class Przelewy24Integration {
         Przelewy24Api api = new Przelewy24Api(Przelewy24Properties.ofEnvironment(), new NativeHttpClient());
 
         ApiResponse r = api.registerPayment(new RegisterPaymentData(
-                "exampleSessionId",
+                "exampleSessionIdsadasdsa",
                 1000,
                 "kanclerj@uek.krakow.pl",
                 "http://jkan.pl",

@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @RestController
 class CarController {
@@ -13,7 +15,7 @@ class CarController {
 
     //list
     @GetMapping("/cars")
-    List<Car> list() {
+    Iterable<Car> list() {
         return carRepository.findAll();
     }
 
@@ -50,3 +52,78 @@ class CarController {
         carRepository.save(loaded);
     }
 }
+
+@FunctionalInterface
+interface DiscountPolicy {
+    public double applyDiscount(double input);
+}
+
+
+class Handler {
+
+    public Handler(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
+
+    DiscountPolicy discountPolicy;
+
+    public void handle() {
+        double price = 200;
+
+        double toBePaid = discountPolicy.applyDiscount(price);
+    }
+}
+
+
+class App {
+    public static void main(String[] args) {
+        Handler handler = new Handler((price) -> price - price * 0.2);
+        handler.handle();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
