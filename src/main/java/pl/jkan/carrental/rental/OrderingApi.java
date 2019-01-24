@@ -10,6 +10,11 @@ class OrderingApi {
     OfferMaker offerMaker;
     ReservationRepository reservationRepository;
 
+    public OrderingApi(PaymentGateway paymentGateway, OfferMaker offerMaker, ReservationRepository reservationRepository) {
+        this.paymentGateway = paymentGateway;
+        this.offerMaker = offerMaker;
+        this.reservationRepository = reservationRepository;
+    }
 
     public ReservationConfirmation handleReservation(ReservationRequest reservationInfo) {
 

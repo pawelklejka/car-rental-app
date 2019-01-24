@@ -18,7 +18,16 @@ public class OrderingTest {
     }
 
     private OrderingApi thereIsOrderingApi() {
-        return new OrderingApi();
+        return new OrderingApi(
+                (a, b, c) -> new Payment("fake-payment", "https://sandbox.przelewy24.pl"),
+                (a, b) -> new Offer(2000),
+                new ReservationRepository() {
+                    @Override
+                    public void save(Reservation r) {
+
+                    }
+                }
+        );
     }
 
     private ReservationRequest clientProvidedRentalInformation() {
