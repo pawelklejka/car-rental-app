@@ -1,4 +1,4 @@
-package pl.jkan.carrental.rentalapp.carcatalog;
+package pl.jkan.carrental.rental.carmodel;
 
 import lombok.*;
 import javax.persistence.*;
@@ -7,16 +7,16 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name = "Car")
 @Builder
-class Car {
+public class Car {
     @Id
-    String id;
+    long id;
     @Column
     String name;
     @Column
     String model;
-    String segemnt;
+    String segment;
     Integer capacity;
     Integer manufactureYear;
 }
