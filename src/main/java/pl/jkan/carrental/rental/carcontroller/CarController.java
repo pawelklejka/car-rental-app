@@ -30,7 +30,6 @@ class CarController {
     //get single car record
     @GetMapping("/cars/{id}")
     public Car get(@PathVariable("id") long id) {
-
         return carService.get(id);
                 //.orElseThrow(() -> new RuntimeException("no such car"));
     }

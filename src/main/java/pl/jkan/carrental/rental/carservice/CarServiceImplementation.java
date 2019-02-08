@@ -23,7 +23,7 @@ public class CarServiceImplementation implements CarService {
     @Override
     public Car get(long id) {
 
-        return carRepo.findById(String.valueOf(id)).get();
+        return carRepo.findById(id).get();
     }
 
     @Override
@@ -36,13 +36,13 @@ public class CarServiceImplementation implements CarService {
 
     @Override
     public void update(long id, Car car) {
-       Car carToBeUpdated = carRepo.findById(String.valueOf(id)).get();
+       Car carToBeUpdated = carRepo.findById(id).get();
        carToBeUpdated = carRepo.save(car);
     }
 
     @Override
     public void delete(long id) {
-        Car carToBeDeleted = carRepo.findById(String.valueOf(id)).get();
+        Car carToBeDeleted = carRepo.findById(id).get();
         carRepo.delete(carToBeDeleted);
     }
 }

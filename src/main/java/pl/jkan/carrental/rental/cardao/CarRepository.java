@@ -8,6 +8,6 @@ import pl.jkan.carrental.rental.carmodel.Car;
 import java.util.List;
 
 
-public interface CarRepository extends CrudRepository<Car, String> {
+public interface CarRepository extends CrudRepository<Car, Long> {
 
 }
