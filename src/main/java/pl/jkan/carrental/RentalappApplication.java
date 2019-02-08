@@ -1,4 +1,4 @@
-package pl.jkan.carrental.rentalapp;
+package pl.jkan.carrental;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

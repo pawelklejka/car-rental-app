@@ -16,45 +16,44 @@ class CarController {
 
     //get all cars
     @GetMapping("/cars")
-    public ResponseEntity<List<Car>> list() {
+    public Iterable list() {
         List<Car> list = carService.list();
-        ResponseEntity allCars = ResponseEntity.ok().body(list);
-        return allCars;
+        return list;
     }
     //save car
     @PostMapping("/cars")
-    public ResponseEntity<?> save(@RequestBody Car car) {
-        long id = carService.save(car);
-        ResponseEntity savedCar = ResponseEntity.ok()
-                                                .body("card with id: " + " has been saved");
-        return savedCar;
+    public void save(@RequestBody Car car) {
+        carService.save(car);
+
+
     }
     //get single car record
     @GetMapping("/cars/{id}")
-    public ResponseEntity<Car> get(@PathVariable("id") long id) {
-        Car car = carService.get(id);
-        ResponseEntity singleCarRecord = ResponseEntity.ok().body(car);
+    public Car get(@PathVariable("id") long id) {
 
-        return singleCarRecord;
+        return carService.get(id);
                 //.orElseThrow(() -> new RuntimeException("no such car"));
     }
     //delete single record
     @DeleteMapping("/cars/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") long id) {
+    public void delete(@PathVariable("id") long id) {
         carService.delete(id);
-        ResponseEntity deletedCar = ResponseEntity.ok()
-                                                .body("car with id " + id + "has been deleted");                
-        return deletedCar;
                 //.orElseThrow(() -> new RuntimeException("no such car"));
         
     }
     //update single record
     @PutMapping("/cars/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Car car) {
-        carService.update(id, car);
-                //.orElseThrow(() -> new RuntimeException("no such car"));
-        ResponseEntity updatedCard = ResponseEntity.ok().body("car has been updated");
-        return updatedCard;
+    void update(@PathVariable long id, @RequestBody Car car) {
+        Car loaded = carService.get(id);
+                //orElseThrow(() -> new RuntimeException("no such car"));
+
+        loaded.setCapacity(car.getCapacity());
+        loaded.setModel(car.getModel());
+        loaded.setManufactureYear(car.getManufactureYear());
+        loaded.setSegemnt(car.getSegemnt());
+        loaded.setName(car.getName());
+
+        carRepository.save(loaded);
     }
 }
 

@@ -5,18 +5,15 @@ import pl.jkan.carrental.rental.carmodel.Car;
 import java.util.List;
 
 public interface CarService {
-    //Save the record
-    long save(Car car);
-
-    //Get a single record
-    Car get(long id);
-
-    //Get all the records
+    //get all cars
     List<Car> list();
-
-    //Update the record
+    //get specific car
+    Car get(long carId);
+    //save
+    void save(Car car);
+    //update
     void update(long id, Car car);
-
-    //Delete a record
+    //delete
     void delete(long id);
+
 }
