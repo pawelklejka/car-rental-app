@@ -43,17 +43,17 @@ class CarController {
     }
     //update single record
     @PutMapping("/cars/{id}")
-    void update(@PathVariable long id, @RequestBody Car car) {
+    public void update(@PathVariable long id, @RequestBody Car car) {
         Car loaded = carService.get(id);
                 //orElseThrow(() -> new RuntimeException("no such car"));
 
         loaded.setCapacity(car.getCapacity());
         loaded.setModel(car.getModel());
         loaded.setManufactureYear(car.getManufactureYear());
-        loaded.setSegemnt(car.getSegemnt());
+        loaded.setSegment(car.getSegment());
         loaded.setName(car.getName());
 
-        carRepository.save(loaded);
+        carService.save(loaded);
     }
 }
 

@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Builder
 public class Car {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     @Column
     String name;
