@@ -42,7 +42,6 @@ public class CarServiceImplementation implements CarService {
 
     @Override
     public void delete(long id) {
-        Car carToBeDeleted = carRepo.findById(id).get();
-        carRepo.delete(carToBeDeleted);
+        carRepo.delete(carRepo.findById(id).get());
     }
 }

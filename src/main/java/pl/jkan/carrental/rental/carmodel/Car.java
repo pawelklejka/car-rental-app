@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "Car")
+@Entity(name = "car")
 @Builder
 public class Car {
     @Id
@@ -15,7 +15,6 @@ public class Car {
     long id;
     @Column
     String name;
-    @Column
     String model;
     String segment;
     Integer capacity;
