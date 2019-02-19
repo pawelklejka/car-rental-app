@@ -1,4 +1,4 @@
-package pl.jkan.carrental.rental;
+package pl.jkan.carrental;
 
 import org.junit.Assert;
 import org.junit.Test;
