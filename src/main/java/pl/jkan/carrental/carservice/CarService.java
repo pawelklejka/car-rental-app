@@ -1,6 +1,6 @@
-package pl.jkan.carrental.rental.carservice;
+package pl.jkan.carrental.carservice;
 
-import pl.jkan.carrental.rental.carmodel.Car;
+import pl.jkan.carrental.carmodel.Car;
 
 import java.util.List;
 

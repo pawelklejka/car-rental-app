@@ -1,4 +1,4 @@
-package pl.jkan.carrental.rental.carmodel;
+package pl.jkan.carrental.carmodel;
 
 import lombok.*;
 import javax.persistence.*;

@@ -16,6 +16,8 @@ public class User {
     String username;
     String password;
     String passwordConfirm;
+    @Column
+    @ElementCollection
     Set<Role> roles;
 
     @ManyToMany

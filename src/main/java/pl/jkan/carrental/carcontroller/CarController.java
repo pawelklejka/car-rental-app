@@ -1,10 +1,9 @@
-package pl.jkan.carrental.rental.carcontroller;
+package pl.jkan.carrental.carcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.jkan.carrental.rental.carmodel.Car;
-import pl.jkan.carrental.rental.carservice.CarService;
+import pl.jkan.carrental.carservice.CarService;
+import pl.jkan.carrental.carmodel.Car;
 
 import java.util.List;
 

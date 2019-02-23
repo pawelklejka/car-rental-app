@@ -1,4 +1,4 @@
-package pl.jkan.carrental.rental;
+package pl.jkan.carrental;
 
 import javax.transaction.Transactional;
 import java.util.UUID;

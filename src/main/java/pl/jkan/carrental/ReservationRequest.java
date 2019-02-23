@@ -1,4 +1,4 @@
-package pl.jkan.carrental.rental;
+package pl.jkan.carrental;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReservationConfirmation {
-    String reservationId;
-    String paymentUrl;
+public class ReservationRequest {
+    String carId;
+    ClientData clientData;
+    int days;
 }

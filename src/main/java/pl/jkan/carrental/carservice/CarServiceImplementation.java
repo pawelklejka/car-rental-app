@@ -1,9 +1,9 @@
-package pl.jkan.carrental.rental.carservice;
+package pl.jkan.carrental.carservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.jkan.carrental.rental.cardao.CarRepository;
-import pl.jkan.carrental.rental.carmodel.Car;
+import pl.jkan.carrental.carmodel.Car;
+import pl.jkan.carrental.cardao.CarRepository;
 
 import java.util.ArrayList;
 import java.util.List;
