@@ -1,8 +1,10 @@
 package pl.jkan;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -16,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
+    @Qualifier("userDetailsServiceImpl")
     private UserDetailsService userDetailsService;
 
     @Bean
@@ -28,8 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.authorizeRequests().
                 antMatchers("/resources/**", "/registration").permitAll().
                 anyRequest().authenticated().
-                and().
-                formLogin().
+                and().formLogin().
                 loginPage("/login").
                 permitAll().
                 and().
@@ -37,6 +39,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 permitAll();
     }
 
+    @Bean
+    public AuthenticationManager customAuthManager() throws Exception{
+      return authenticationManager();
+    }
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());

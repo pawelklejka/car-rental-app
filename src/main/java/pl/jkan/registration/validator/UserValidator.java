@@ -1,12 +1,14 @@
 package pl.jkan.registration.validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import pl.jkan.registration.model.User;
 import pl.jkan.registration.service.UserService;
 
+@Component
 public class UserValidator implements Validator {
     @Autowired
     private UserService userService;
